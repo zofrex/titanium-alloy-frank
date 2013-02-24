@@ -26,3 +26,7 @@ end
 def assert_button(name)
   check_element_exists_and_is_visible "button marked:'#{name}'"
 end
+
+def can_see(query)
+  check_element_exists_and_is_visible query
+end

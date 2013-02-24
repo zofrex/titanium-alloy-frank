@@ -12,11 +12,24 @@ module SimulatorWorld
 
   def simulator
     if @@simulator.nil?
-      @@simulator = SimLauncher::Simulator.new
-      @@simulator.launch_ios_app(APP_BUNDLE_PATH, nil, "iphone")
-      wait_for_frank_to_come_up
+      create_simulator
+      start_simulator
     end
     @@simulator
+  end
+
+  def restart_simulator
+    @@simulator.quit_simulator
+    start_simulator
+  end
+
+  def create_simulator
+    @@simulator = SimLauncher::Simulator.new
+  end
+
+  def start_simulator
+    @@simulator.launch_ios_app(APP_BUNDLE_PATH, nil, "iphone")
+    wait_for_frank_to_come_up
   end
 end
 

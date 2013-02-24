@@ -1,11 +1,15 @@
 # encoding: UTF-8
 
 Then /^I should see the setup screen$/ do
-  pending # express the regexp above with the code you wish you had
+  can_see "view marked:'Setup'"
 end
 
 Given /^I am on the setup screen$/ do
-  pending # express the regexp above with the code you wish you had
+  if element_is_not_hidden("view marked:'blah'") != true
+    step "I am on the start screen"
+    step "I press the start button"
+    element_is_not_hidden("view marked:'blah'").should be_true
+  end
 end
 
 Then /^I should see my balance$/ do

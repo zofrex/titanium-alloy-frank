@@ -1,5 +1,5 @@
-function doClick(e) {  
-    alert($.label.text);
+function startClicked(e) {  
+    //alert($.label.text);
 }
 
 $.index.open();

@@ -1,4 +1,5 @@
 require 'xcodeproj'
+require 'sim_launcher'
 
 PROJECT_ROOT = File.expand_path File.dirname(__FILE__)
 SOURCE_FILES = FileList["app", "manifest", "plugins", "Resources", "tiapp.xml"]
@@ -57,3 +58,12 @@ file X_BINARY_PATH => [FRANK_STAMP, X_FRANK_BUNDLE_DST] do
   end
 end
 task :compile => X_BINARY_PATH
+
+task :launch => :compile do
+  SimLauncher::DirectClient.for_iphone_app(X_APP_PATH).relaunch
+  puts "Launched!"
+end
+
+task :inspect do
+  sh 'open http://localhost:37265'
+end

@@ -1,7 +1,5 @@
 function Controller() {
-    function doClick(e) {
-        alert($.label.text);
-    }
+    function startClicked(e) {}
     require("alloy/controllers/BaseController").apply(this, Array.prototype.slice.call(arguments));
     $model = arguments[0] ? arguments[0].$model : null;
     var $ = this, exports = {}, __defers = {};
@@ -16,18 +14,11 @@ function Controller() {
         id: "label"
     });
     $.__views.index.add($.__views.label);
-    doClick ? $.__views.label.addEventListener("click", doClick) : __defers["$.__views.label!click!doClick"] = !0;
-    $.__views.label = Ti.UI.createButton({
-        title: "Quit",
-        id: "label"
-    });
-    $.__views.index.add($.__views.label);
-    doClick ? $.__views.label.addEventListener("click", doClick) : __defers["$.__views.label!click!doClick"] = !0;
+    startClicked ? $.__views.label.addEventListener("click", startClicked) : __defers["$.__views.label!click!startClicked"] = !0;
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.index.open();
-    __defers["$.__views.label!click!doClick"] && $.__views.label.addEventListener("click", doClick);
-    __defers["$.__views.label!click!doClick"] && $.__views.label.addEventListener("click", doClick);
+    __defers["$.__views.label!click!startClicked"] && $.__views.label.addEventListener("click", startClicked);
     _.extend($, exports);
 }
 

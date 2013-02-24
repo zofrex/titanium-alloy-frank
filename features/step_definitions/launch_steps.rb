@@ -18,3 +18,11 @@ end
 Given /^I launch the app using iOS (\d\.\d) and the (iphone|ipad) simulator$/ do |sdk, version|
   launch_app app_path, sdk, version
 end
+
+Given /^I touch hello$/ do
+  touch "button marked:'Hello, World'"
+end
+
+Then /^I should see an alert$/ do
+  check_element_exists "view:'UIAlertView'"
+end

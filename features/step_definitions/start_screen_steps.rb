@@ -15,7 +15,7 @@ Given /^I press the quit button$/ do
 end
 
 Then /^the app should quit$/ do
-  pending # express the regexp above with the code you wish you had
+  wait_for_element_to_not_exist "button marked:'Quit'"
 end
 
 Given /^I press the start button$/ do

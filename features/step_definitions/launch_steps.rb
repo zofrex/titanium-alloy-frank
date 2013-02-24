@@ -28,8 +28,7 @@ Given /^I touch hello$/ do
 end
 
 def alert
-  sleep 1
-  check_element_exists "view:'UIAlertView'"
+  wait_for_element_to_exist "view:'UIAlertView'"
 end
 
 Then /^I should see an alert$/ do
@@ -41,10 +40,10 @@ Given /^I am viewing the alert$/ do
 end
 
 Given /^I clear it$/ do
+  sleep 0.5
   touch_button "OK"
 end
 
 Then /^I should not see an alert$/ do
-  sleep 1
-  check_element_does_not_exist_or_is_not_visible "view:'UIAlertView'"
+  wait_for_element_to_not_exist "view:'UIAlertView'"
 end

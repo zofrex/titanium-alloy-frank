@@ -23,27 +23,6 @@ def touch_button(name)
   touch "view marked:'#{name}'"
 end
 
-Given /^I touch hello$/ do
-  touch_button "Hello, World"
-end
-
-def alert
-  wait_for_element_to_exist "view:'UIAlertView'"
-end
-
-Then /^I should see an alert$/ do
-  alert
-end
-
-Given /^I am viewing the alert$/ do
-  alert
-end
-
-Given /^I clear it$/ do
-  sleep 0.5
-  touch_button "OK"
-end
-
-Then /^I should not see an alert$/ do
-  wait_for_element_to_not_exist "view:'UIAlertView'"
+def assert_button(name)
+  check_element_exists_and_is_visible "button marked:'#{name}'"
 end

@@ -1,17 +1,17 @@
 Given /^I am on the start screen$/ do
-  pending # express the regexp above with the code you wish you had
+  # noop
 end
 
 Then /^I should see the start button$/ do
-  pending # express the regexp above with the code you wish you had
+  assert_button "Start"
 end
 
 Then /^I should see the quit button$/ do
-  pending # express the regexp above with the code you wish you had
+  assert_button "Quit"
 end
 
 Given /^I press the quit button$/ do
-  pending # express the regexp above with the code you wish you had
+  touch_button "Quit"
 end
 
 Then /^the app should quit$/ do
@@ -19,5 +19,5 @@ Then /^the app should quit$/ do
 end
 
 Given /^I press the start button$/ do
-  pending # express the regexp above with the code you wish you had
+  touch_button "Start"
 end

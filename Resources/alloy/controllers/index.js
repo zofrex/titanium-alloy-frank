@@ -7,6 +7,7 @@ function Controller() {
     var $ = this, exports = {}, __defers = {};
     $.__views.index = Ti.UI.createWindow({
         backgroundColor: "white",
+        layout: "vertical",
         id: "index"
     });
     $.addTopLevelView($.__views.index);

@@ -11,7 +11,13 @@ function Controller() {
     });
     $.addTopLevelView($.__views.index);
     $.__views.label = Ti.UI.createButton({
-        title: "Hello, World",
+        title: "Start",
+        id: "label"
+    });
+    $.__views.index.add($.__views.label);
+    doClick ? $.__views.label.addEventListener("click", doClick) : __defers["$.__views.label!click!doClick"] = !0;
+    $.__views.label = Ti.UI.createButton({
+        title: "Quit",
         id: "label"
     });
     $.__views.index.add($.__views.label);
@@ -19,6 +25,7 @@ function Controller() {
     exports.destroy = function() {};
     _.extend($, $.__views);
     $.index.open();
+    __defers["$.__views.label!click!doClick"] && $.__views.label.addEventListener("click", doClick);
     __defers["$.__views.label!click!doClick"] && $.__views.label.addEventListener("click", doClick);
     _.extend($, exports);
 }

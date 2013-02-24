@@ -19,10 +19,32 @@ Given /^I launch the app using iOS (\d\.\d) and the (iphone|ipad) simulator$/ do
   launch_app app_path, sdk, version
 end
 
+def touch_button(name)
+  touch "view marked:'#{name}'"
+end
+
 Given /^I touch hello$/ do
-  touch "button marked:'Hello, World'"
+  touch_button "Hello, World"
+end
+
+def alert
+  sleep 1
+  check_element_exists "view:'UIAlertView'"
 end
 
 Then /^I should see an alert$/ do
-  check_element_exists "view:'UIAlertView'"
+  alert
+end
+
+Given /^I am viewing the alert$/ do
+  alert
+end
+
+Given /^I clear it$/ do
+  touch_button "OK"
+end
+
+Then /^I should not see an alert$/ do
+  sleep 1
+  check_element_does_not_exist_or_is_not_visible "view:'UIAlertView'"
 end

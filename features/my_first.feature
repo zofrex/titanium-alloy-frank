@@ -6,3 +6,8 @@ Feature:
   Scenario: Touching the button
     Given I touch hello
     Then I should see an alert
+
+  Scenario: Clearing the alert
+    Given I am viewing the alert
+    And I clear it
+    Then I should not see an alert
